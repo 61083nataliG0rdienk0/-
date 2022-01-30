@@ -7,6 +7,14 @@ $third-text-color: #907e82;
 $accent-main-color: #d41443;
 $accent-secondary-color: #ffa5ba;
 
+// Background section color
+$section-bg-color: #fff5f6;
+
+// Accent colors
+$accent-bg-color-first: #ffb8ca;
+$accent-bg-color-second: #f0d1a5;
+$accent-bg-color-third: #c2e297;
+
 // Cubic-bezier
 $cubic-timing: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -14,3 +22,6 @@ $cubic-timing: cubic-bezier(0.4, 0, 0.2, 1);
 $main-font: 'DM Sans', sans-serif;
 $secondary-font: 'Titan One', sans-serif;
 
+// Hover button
+$hover-accent-button-color: #c7133e;
+$hover-inverse-button-color: #ecebeb;

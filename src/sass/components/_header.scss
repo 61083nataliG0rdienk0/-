@@ -1,8 +1,16 @@
+//Header styles
 .header {
   width: 100%;
   height: 502px;
   background-color: #ffb8ca;
-  //   position: relative;
+
+  @media screen and (min-width: 768px) {
+    height: 399px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 665px;
+  }
 }
 
 .header__relative {
@@ -12,13 +20,25 @@
   overflow: hidden;
 }
 
+//Header navigation
 .header__main-nav {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding-top: 6px;
   margin-bottom: 137px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 37px;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 75px;
+  }
+  z-index: 100;
 }
 
 .header__logo {
@@ -26,46 +46,167 @@
   height: 50px;
 }
 
-.mobile-menu__button-open {
-  display: inline-flex;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+.main-nav__list {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: flex;
+  }
 }
 
-.hero__title-wrapper {
-  position: absolute;
+.main-nav__item {
+  &:not(:last-child) {
+    margin-right: 35px;
+  }
+}
+
+.main-nav__link {
+  @include main-font(16px, 700, 21px);
+  color: $main-text-color;
+
+  &:hover,
+  &:focus {
+    color: $accent-main-color;
+  }
+}
+
+.mobile-menu__burger {
+  @include button;
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.header__button-baynow {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    @include base-button;
+    margin-left: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 0;
+  }
+}
+
+/////////////////////////Hero
+.content-thumb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero__title-thumb {
+  position: relative;
+  z-index: 50;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 19px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 56px;
+    padding-left: 70px;
+  }
 }
 
 .hero__title {
   @include secondary-font(26px, 400, 30px);
   color: $main-text-color;
   margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    @include secondary-font(22px, 400, 25px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include secondary-font(38px, 400, 44px);
+    margin-bottom: 25px;
+  }
 }
 
 .hero__title-accent {
   @include secondary-font(48px, 400, 47px);
   color: $accent-main-color;
+
+  @media screen and (min-width: 768px) {
+    @include secondary-font(34px, 400, 31px);
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include secondary-font(58px, 400, 53px);
+  }
 }
 
 .hero__bg-circle {
-  position: absolute;
-  bottom: 75px;
-  right: 0;
-  transform: translateX(62px);
-
-  width: 346px;
-  height: 346px;
   border-radius: 50%;
   background-color: $accent-secondary-color;
+
+  @media screen and (max-width: 767px) {
+    width: 346px;
+    height: 346px;
+
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    transform: translateX(62px);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 324px;
+    height: 324px;
+
+    position: absolute;
+    bottom: 46px;
+    right: 137px;
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 538px;
+    height: 538px;
+
+    position: absolute;
+    bottom: 75px;
+    right: 190px;
+  }
 }
 
 .hero__img {
-  position: absolute;
-  bottom: 0;
-  right: 30px;
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    bottom: 0px;
+    right: 32px;
+
+    &--girl {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 0px;
+    right: 247px;
+
+    &--girl {
+      position: absolute;
+      bottom: 0px;
+      right: 34px;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    position: absolute;
+    bottom: 0px;
+    left: 49%;
+
+    &--girl {
+      position: absolute;
+      bottom: 0px;
+      right: 34px;
+    }
+  }
 }
 
 .hero__button-list {
@@ -92,16 +233,100 @@
   &--accent {
     color: $main-text-color;
     background-color: $accent-main-color;
+
+    &:hover,
+    &:focus {
+      background-color: $hover-accent-button-color;
+    }
   }
 
   &--reverse {
     color: $accent-main-color;
     background-color: $main-text-color;
+
+    &:hover,
+    &:focus {
+      background-color: $hover-inverse-button-color;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    @include main-font(14px, 400, 18px, 0);
   }
 }
 
-.header__button--bay {
-  width: 150px;
-  height: 50px;
-  background-color: $main-text-color;
+//Quantity points
+.quantity-point__item {
+  padding-right: 10px;
+
+  &:not(:last-child) {
+    margin-bottom: 13px;
+  }
+
+  &::before {
+    content: ' ';
+
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: $main-text-color;
+    border-radius: 50%;
+    transform: translateX(35px);
+
+    @media screen and (min-width: 1200px) {
+      width: 30px;
+      height: 30px;
+      transform: translateX(45px);
+    }
+  }
+}
+
+.quantity-point__number {
+  @include secondary-font(28px, 400, 32px, 0.04em);
+  color: $accent-main-color;
+  position: relative;
+  text-align: right;
+
+  @media screen and (min-width: 1200px) {
+    @include secondary-font(46px, 400, 53px, 0.04em);
+  }
+}
+
+.quantity-point__cafes {
+  @include main-font(8px, 400, 10px, 0);
+  color: $main-text-color;
+  text-align: right;
+}
+
+/////Secondary image
+.hero__secondary-img-thumb {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline-flex;
+    align-items: flex-end;
+  }
+
+  @media screen and (min-width: 1200px) {
+  }
+}
+
+.secondary-img__text-thumb {
+  padding-bottom: 6px;
+}
+
+.secondary-img__text {
+  width: 115px;
+  @include main-font(8px, 400, 12px, 0);
+  color: $main-text-color;
+  margin-bottom: 7px;
+
+  @media screen and (min-width: 1200px) {
+    width: 200px;
+    @include main-font(14px, 400, 20px, 0);
+  }
 }
